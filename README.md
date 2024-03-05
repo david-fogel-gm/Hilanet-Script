@@ -1,7 +1,14 @@
 # Hilanet-Script
-A script I wrote that knows how to automatically fill in your hours for all days and also choose whether you work from home or from the office according to the days of each.
+This is a fork of a repo written by GuyHassan and adjusted for GM parameters.
+In order for it to work you'll need to:
+1. Change Hilan language to english.
+2. Be at the end of the month (have a red 'x') by all the relevant days.
+3. Go to left hamburger menu -> attendence -> reports -> report & update
+4. Select 'Errors'
+5. Follow the below instructions to fill in the relevant days.
 
-```https://<your-company-name>.net.hilan.co.il/login```
+To start, go to the orginizational Hilan sign in day
+```https://gm.net.hilan.co.il/login```
 
 ```
 const entryTime = '09.00';
@@ -26,10 +33,10 @@ document.querySelectorAll("input[name*='ManualExit_EmployeeReports_row']").forEa
 Array.from(document.getElementsByClassName(' regularItemCell ItemBorder')).forEach((item, idx) => {
     const dateCell = item.getAttribute('ov');
 
-    if (dateCell.includes('Mon') || dateCell.includes('Thu')) {
-        document.querySelectorAll("select[name*='SymbolId_EmployeeReports_row']")[idx].value = '0';
+    if (dateCell.includes('Mon') || dateCell.includes('Wed')) {
+        document.querySelectorAll("select[name*='SymbolId_EmployeeReports_row']")[idx].value = '100';
     } else {
-        document.querySelectorAll("select[name*='SymbolId_EmployeeReports_row']")[idx].value = '10';
+        document.querySelectorAll("select[name*='SymbolId_EmployeeReports_row']")[idx].value = '0';
     }
 });
 ```
