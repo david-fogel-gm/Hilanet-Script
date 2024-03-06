@@ -34,9 +34,9 @@ Array.from(document.getElementsByClassName(' regularItemCell ItemBorder')).forEa
     const dateCell = item.getAttribute('ov');
 
     if (dateCell.includes('Mon') || dateCell.includes('Wed')) {
-        document.querySelectorAll("select[name*='SymbolId_EmployeeReports_row']")[idx].value = '100';
-    } else {
         document.querySelectorAll("select[name*='SymbolId_EmployeeReports_row']")[idx].value = '0';
+    } else {
+        document.querySelectorAll("select[name*='SymbolId_EmployeeReports_row']")[idx].value = '100';
     }
 });
 ```
